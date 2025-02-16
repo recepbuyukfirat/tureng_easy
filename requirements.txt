@@ -1,0 +1,3 @@
+sudo apt install xclip
+sudo apt install lynx
+sudo apt install libnotify-bin
