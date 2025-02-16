@@ -1,0 +1,9 @@
+#! /bin/bash
+
+higlight_word=`xclip -o`
+wordss=`lynx -dump "https://tureng.com/en/turkish-english/$higlight_word" | grep "common usage" | awk -F']' '/]/ {print $3}'`
+
+if [ -z "$wordss" ]; then
+wordss=`lynx -dump "https://tureng.com/en/turkish-english/$higlight_word" |grep "1 "| awk -F']' '/]/ {print $3}'`
+fi
+notify-send --icon=flag "$higlight_word" "$wordss"
